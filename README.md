@@ -41,20 +41,20 @@ module tb;
         .F(F)
     );
 
-    initial begin
+initial begin
         // ---- VCD dump setup ----
         $dumpfile("fun.vcd");   // name of the VCD file to be generated
         $dumpvars(0, tb);   // dump all signals in this testbench hierarchy
 
-        // ---- Apply all 4 input combinations ----
+// ---- Apply all 4 input combinations ----
         $monitor("Time=%0t A=%b B=%b | F=%b", $time, A, B, F);
 
-        A = 0; B = 0; #10;
+ A = 0; B = 0; #10;
         A = 0; B = 1; #10;
         A = 1; B = 0; #10;
         A = 1; B = 1; #10;
 
-        #10 $finish;
+#10 $finish;
     end
 
 endmodule
@@ -63,7 +63,6 @@ endmodule
 
 
 
-    
 ## Truth Table
  
 <img width="795" height="311" alt="image" src="https://github.com/user-attachments/assets/dd4ba5b9-016b-4ae5-a693-f309c60c4c0e" />
